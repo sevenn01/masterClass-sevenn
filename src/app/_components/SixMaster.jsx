@@ -30,10 +30,10 @@ function SixMaster({courses,complete}) {
 
   },[courses]) 
 
-  //md:grid-cols-2 lg:grid-cols-3 min-[1024px]:grid-cols-2
+//md:grid-cols-2 lg:grid-cols-3 min-[1024px]:grid-cols-2                                                                                            grid-cols-1 min-[1024px]:grid-cols-2 min-[1440px]:grid-cols-3                                                                          
   return (
-    <div className={`w-[90%] relative  z-0 py-5   justify-center items-center ${courses.length > 0 ? 'px-10 grid gap-x-5 gap-y-10  grid-cols-1 min-[1024px]:grid-cols-2 min-[1440px]:grid-cols-3 ': ''} `}>
-
+    <div className={`select-none w-[90%] relative  z-0 py-5   justify-center items-center ${courses.length > 0 ? 'px-10 grid gap-x-5 gap-y-10  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ': ''} `}>
+                                                    
       { 
         Array.isArray(courses) && courses.length > 0 ? 
           (
@@ -46,10 +46,15 @@ function SixMaster({courses,complete}) {
                   pathname: `${course.slug}`, 
                   query: { id: course.idOfCourse } 
                 }} 
-                
+                onClick={
+                  (e) => {
+                    if(!course.state) 
+                      e.preventDefault();
+                  }
+                }
                 
 
-                className={`group relative overflow-hidden rounded-[20px] 
+                className={`group select-none relative overflow-hidden rounded-[20px] 
                   transition-all ease-in-out duration-500
                   ${course.state ? 'cursor-pointer' : 'cursor-none'}
                   hover:translate-y-[-10px] hover:shadow-xl
@@ -88,14 +93,16 @@ function SixMaster({courses,complete}) {
                     priority={true}
                   />
                   <div className="footer  w-full flex flex-col justify-center items-center px-5 absolute bottom-5 ">
-                      <div className=" w-full flex justify-between  mb-5 " >
-                        <div className='felx gap-2'>
-                          <div className="title font-bold text-[2rem]">{course.title}</div>
-                          <div className="description w-[80%] h-[80px] text-sm font-extralight text-clip">{course.description}</div>
+                      <div className=" w-full flex flex-col   mb-5 " >
+                      
+                          <div className='w-full flex justify-between items-center'>
+                            <div className="title font-bold text-[2rem]">{course.title}</div>
+                            <FaArrowRight size={25}/>
+                          </div>
+                          <div className="description w-[300px]  text-sm font-extralight  line-clamp-2">{course.description}</div>
                         
                         </div>
-                        <FaArrowRight size={25}/>
-                      </div>
+                      
                       <div className={`w-full flex-col justify-center gap-1 ${user? 'flex' : 'hidden'}`}>
                         <div>{complete? complete[index] : '0'}%</div>
                         <div className="relative w-full h-[10px] bg-white/20 rounded-sm overflow-hidden">

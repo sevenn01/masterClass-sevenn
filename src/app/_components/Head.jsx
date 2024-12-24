@@ -6,31 +6,22 @@ import Image from 'next/image'
 
 function Head() {
 
-
   return (
-    <div className=''>
+    <div className='select-none'>
        
        
         <header>
-            <div className="comingSoon relative   w-full flex justify-center items-center gap-2 font-indie text-[1.5rem] text-white ">
-                <div className="circle bg-[var(--greenColor)] animate-sign-soon 
-                 w-[10px] h-[10px]  backdrop-blur-10 rounded-xl sha "></div>
-                coming soon 07/31/2024
-            </div>
+            
             
             <div className='3dSeven w-full flex justify-center mt-5'>
               <div className='px-5 py-2 flex justify-start items-center gap-4
                  bg-gradient-to-br  from-black from-10% via-[var(--lightGrayColor)] via-70% to-[var(--darkGrayColor)] to-90%
                  
                  rounded-[40px] '>
-                <Image
-                  className=''
-                  src='/seven-logo.svg'
-                  alt='Seven-3d-artist'
-                  width={30}
-                  height={30}
-                />
-                <div className='text-white text-[1.2rem] font-inter '>3DSeven</div>
+                
+                <div className="circle bg-[var(--greenColor)] animate-sign-soon 
+                 w-[10px] h-[10px]  backdrop-blur-10 rounded-xl sha "></div>
+                <div className='text-white text-[1.2rem] font-inter  '>3D Sevenn</div>
               </div>
               
             </div>
@@ -45,7 +36,7 @@ function Head() {
             min-[600px]:leading-[6rem] min-[1120px]:leading-[8vw] min-[1440px]:leading-[9rem] text-center'>
             
             {/* The Welcome Text */}
-            <div className='flex flex-col min-[1280px]:flex-row bg-gradient-to-r from-[#ffffff05] from-5% via-[rgb(255,255,255)] via-50% to-[#ffffff02] text-transparent bg-clip-text'>
+            <div className='flex flex-col min-[1280px]:flex-row bg-gradient-to-r from-[#ffffff05] from-5% via-[rgb(255,255,255)] via-50% to-[#ffffff02] text-transparent bg-clip-text gap-x-5'>
               Welcome <p> to the six</p>
             </div>
 

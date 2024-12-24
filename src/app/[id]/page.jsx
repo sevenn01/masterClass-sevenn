@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react'
 import Head from './_components/Head'
-import Course from './_components/course'
+import Course from './_components/Course'
 import VideoList from './_components/VideoList'
 import { useParams, useSearchParams } from 'next/navigation'
 
@@ -167,20 +167,21 @@ function Week() {
   //tools.forEach((tool,i) => console.log('tools'+i+' : ', tool))
 
   return (
-    <div className='w-full min-h-screen flex flex-col items-center overflow-x-hidden'>
-        <Head/>
+    <div className='w-full min-h-screen py-20 flex flex-col items-center overflow-x-hidden'>
+        {/* <Head/> */}
         
-        { user? ( <div>{user?.primaryEmailAddress?.emailAddress}</div>): null }
+        {/* user? ( <div>{user?.primaryEmailAddress?.emailAddress}</div>): null */}
       
         <Course week={week}/> 
-
-                      
+        
+                    
 
         <div className=' flex justify-center items-center'>
           <div className=' text-sm mt-100'>{url}</div>  
         <VideoList weekChapters={chapters} status={statusChaps} generateUserId={generateUserId}/> 
-
+        
         </div>
+        {/* <Course week={week}/> */}
         <Comment   userId={generateUserId}/>
     </div>
   )

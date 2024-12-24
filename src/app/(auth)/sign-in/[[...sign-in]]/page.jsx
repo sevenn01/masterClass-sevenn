@@ -14,8 +14,8 @@ import Image from "next/image";
 
     return (
       <section className="w-full bg-white">
-        <div className=" lg:grid lg:min-h-screen lg:grid-cols-12">
-          {/* Left Section (Image and Content) */}
+       {/* <div className=" lg:grid lg:min-h-screen lg:grid-cols-12">
+           Left Section (Image and Content) 
           <section className="relative flex h-48 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6">
             <Image
               alt="Log-img"
@@ -48,11 +48,11 @@ import Image from "next/image";
               </p>
             </div>
           </section>
-  
-          {/* Right Section (Sign In Form) */}
+  */}
+          {/* Right Section (Sign In Form) 
           <main className="flex items-center justify-center px-6 py-12 sm:px-16 lg:col-span-7 xl:col-span-6">
             <div className="w-full max-w-lg lg:max-w-3xl">
-              {/* Mobile View Heading */}
+              {// Mobile View Heading }
               <div
                 className="lg:hidden mb-8 text-center sticky top-0 bg-white z-10"
               >
@@ -77,13 +77,21 @@ import Image from "next/image";
                 </p>
               </div>
   
-              {/* Sign-in Section */}
+              {/* Sign-in Section }
               <div className="mt-10 flex items-center justify-center">
                 <SignIn />
               </div>
             </div>
           </main>
+          </div>*/}
+
+          <div className="w-full h-[100vh] flex justify-center items-center
+            bg-[url('/img-4.jpg')]
+            bg-cover bg-center
+          ">
+          <SignIn />
         </div>
+        
       </section>
     
   

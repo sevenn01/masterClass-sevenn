@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useState } from 'react'
 import SixMaster from './_components/SixMaster'
 import { useUser } from '@clerk/nextjs'
 import { checkUserByEmail, fetchUserByEmail } from '@/lib/user'
-import Head from './_components/head'
+import Head from './_components/Head'
 import { createUser } from '@/lib/createUser'
 
 

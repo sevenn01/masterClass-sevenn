@@ -19,6 +19,7 @@ import { useUser } from '@clerk/nextjs';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { UpdateChapter } from '@/lib/user';
+import ListOfVideo from './ListOfVideos';
 
 function VideoList( {weekChapters, status, generateUserId} ) {
 
@@ -182,7 +183,7 @@ function VideoList( {weekChapters, status, generateUserId} ) {
     {
       !user ?
       (
-        <div>
+        <div className='inline md:hidden'>
           <div className=' relative w-[90vw] h-[60px] flex justify-between items-center bg-gray-500 text-[2rem] px-10  font-inter font-extrabold overflow-hidden'>
             <div className='w-full flex justify-start  items-center gap-10 '>
               Chapters
@@ -210,7 +211,7 @@ function VideoList( {weekChapters, status, generateUserId} ) {
       (
         <NavigationMenu
         ref={chapterRef}
-        className="  py-5 rounded-none "
+        className="  py-5 rounded-none inline md:hidden "
         onMouseLeave={handleMouseLeave}
         onMouseEnter={handleMouseEnter}
         
@@ -251,7 +252,7 @@ function VideoList( {weekChapters, status, generateUserId} ) {
                               ${statusChaps[index] ? 'bg-[var(--orangeColor)]  text-white' : 'bg-gray-300/20 text-black '} 
                               hover:bg-gray-300 transition-all duration-300 ease-in-out
                               `}
-                            /*disabled = {active !== index}*/
+                              //disabled = {active !== index}*/
                           >
                             <div >
                               {chap.title}
@@ -274,17 +275,20 @@ function VideoList( {weekChapters, status, generateUserId} ) {
       
       
       <div className='w-full mt-10 flex flex-col gap-3 text-white font-bold text-[1.3rem]  '>
-        <div className={` w-fit px-2 flex gap-3 items-center ${statusChaps[ind] ? 'bg-[var(--orangeColor)]' : 'bg-gray-600'}  `}>
+        <div className={` w-fit px-2 flex gap-3 items-center ${statusChaps[ind] ? 'bg-[var(--orangeColor)]' : 'bg-gray-800'}  `}>
           {chapters[ind] ? chapters[ind].title : null }
           <MdDone/>
         </div>
-        <div className="description w-[80vw] text-lg font-thin">
+        <div className="description w-full text-lg font-thin">
           {chapters[ind]  ? chapters[ind].description : null}
         </div>
       </div>
 
       {/* play video component */}
-      <VideoPlayer url={url} />
+      <div className='w-[100%] flex gap-2 items-end flex-row'>
+        <VideoPlayer url={url} />
+        <ListOfVideo user={user} chapters={weekChapters? chapters: null} handleGetChapter={handleGetChapter} handleClick={handleClick} statusChaps={statusChaps} active={active}/>
+      </div>
       
       <div className="control w-full  mt-5 flex flex-col gap-3 min-[454px]:gap-0 min-[454px]:flex-row  min-[454px]:justify-between items-center">
         <div className="next-prev w-full min-[454px]:w-auto  flex justify-between min-[454px]:justify-start gap-10">
@@ -322,7 +326,7 @@ function VideoList( {weekChapters, status, generateUserId} ) {
         >Mark As Complete</button>
       </div>
     
-
+      
     </div>
   );
 }

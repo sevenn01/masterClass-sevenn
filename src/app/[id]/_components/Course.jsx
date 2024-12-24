@@ -37,29 +37,31 @@ function Course({week}) {
     //const [chapter, setChapter] = useState('');
 
   return (
-    <div className='relative  w-[90%] py-20  flex flex-col gap-20 justify-center  z-0 '>
+    <div className='relative w-[90%] py-2 flex flex-col gap-2 justify-center z-0'>
         {
             course && tools.length > 0  ?
-            (
-                <div className='relative  w-full pt-10 pb-10  flex flex-col min-[1250px]:flex-row gap-10 justify-between z-0 ' >
-                    <h1 className='title text-orange-600  font-bold text-nowrap px-0 min-[460px]:px-5 text-[5rem] min-[433px]:text-[8rem] font-impact uppercase tracking-wider'>
+            (//min-[460px]:px-5
+                <div className='relative  w-full pt-10 pb-10  flex flex-col min-[1412px]:flex-row gap-20 justify-between z-0 ' >
+                    <h1 className='title text-orangeColor  font-bold text-nowrap px-0  text-[5rem] min-[433px]:text-[8rem] font-impact uppercase tracking-wider'>
                         {course.title}
                     </h1>
-                    <div className="about  relative px-1 py-2 min-[385px]:p-5 grid grid-cols-1 min-[800px]:grid-cols-2 md:grid-cols-2  gap-20 ">
-                        <div className="goal w-[300px]  font-bold flex flex-col gap-2 text-balance">
+                    <div className="about w-[80%] relative  px-1 py-2 min-[385px]:p-5 grid grid-cols-1 min-[970px]:grid-cols-2 gap-10 min-[970px]:gap-32 ">
+                        <div className="goal w-[400px]  font-bold flex flex-col gap-5 text-balance">
                             <div className='text-[2rem]'>Goal</div>
                             <div className='font-thin'>
                                 {goal}
                             </div>
                         </div>
-                        <div className=" font-bold flex flex-col gap-10  ">
+                        <div className=" font-bold flex flex-col gap-1  ">
                             <div className="tools flex flex-col gap-2 ">
-                                <div className='text-[2rem]'>Tools</div>
-                                {
+                                <div className='w-[500px] text-[2rem]'>Discord group</div>
+                                <Link href='https://discord.com/invite/6E6RkPdQ25' className='font-thin  '>Discord Link</Link>
+                                {/*
                                     tools.length > 0 ?
                                     tools.map((tool,id) => (
                                         <li key={id} className='font-thin'>{tool}</li>
                                     )): <div></div>
+                                    */
                                 }
                             </div>
                             <div className="files font-bold flex flex-col gap-2">
