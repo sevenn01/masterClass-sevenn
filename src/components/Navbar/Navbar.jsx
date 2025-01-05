@@ -15,7 +15,8 @@ function Navbar() {
 
     const [isOpen, setIsOpen] = useState(false); 
     const menuRef = useRef(null);
-
+    const [isVisible, setIsVisible] = useState(true) // Track navbar visibility
+    const [lastScrollPos, setLastScrollPos] = useState(0) // Track last scroll position
 
     const { user, isLoaded } = useUser();
     const router = useRouter();
@@ -40,6 +41,18 @@ function Navbar() {
         transition: 'all 2s cubic-bezier(0.19, 1, 0.22, 1)'
       }
 
+    
+      // Scroll-based visibility logic
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollPos = window.scrollY
+            setIsVisible(currentScrollPos < lastScrollPos || currentScrollPos < 10) // Show navbar when scrolling up or near top
+            setLastScrollPos(currentScrollPos)
+        }
+        
+        window.addEventListener('scroll', handleScroll)
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [lastScrollPos])
 /*
     useEffect(() => {
         //console.log(isOpen)
@@ -73,7 +86,7 @@ function Navbar() {
     const setList = (links) => {
         
         return links.map(link => (
-            <div  key={link.id} className={ `cursor-pointer ${link.style}`}
+            <div  key={link.id} className={ `cursor-pointer ${link.style} `}
                 onClick={() => {
                   
                     setIsOpen(false);
@@ -99,7 +112,10 @@ function Navbar() {
 
 
     return (
-        <div className={`full-navbar fixed w-full top-0 z-[999] `}>
+        <div className={`full-navbar fixed w-full top-0 z-[999] 
+            ${isVisible ? 'translate-y-0' : '-translate-y-full'}
+            transition-transform duration-300
+        `}>
 
            
 

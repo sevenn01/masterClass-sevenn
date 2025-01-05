@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/footer/Footer";
 import Link from "next/link";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 import {
   ClerkProvider,

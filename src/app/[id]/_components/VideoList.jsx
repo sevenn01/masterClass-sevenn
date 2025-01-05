@@ -159,20 +159,31 @@ function VideoList( {weekChapters, status, generateUserId} ) {
 
   if(!Array.isArray(chapters) || chapters.length === 0){
     return(
-      <div className='w-[90%] py-20 flex flex-col gap-5 justify-center'>
-        <Skeleton className='h-[80px] w-full' />
-        <Skeleton className='h-[40px] w-[200px]' />
-        <Skeleton className='h-[150px] w-full' />
-        <Skeleton className="video h-[600px] w-full "></Skeleton>
-
-        <div className='w-full flex flex-between items-conter'>
-          <div className='w-full flex flex-between gap-2 items-conter'>
-            <Skeleton className='w-[60px] h-[30px] ' ></Skeleton>
-            <Skeleton className='w-[60px] h-[30px] ' ></Skeleton>
-          </div>
-            <Skeleton className='w-[120px] h-[30px] ' ></Skeleton>
+      <div className="w-[100%] py-20 flex flex-col gap-5 justify-center items-center">
+      {/* Skeleton for the heading */}
+      <Skeleton className="h-[80px] w-full sm:w-[75%] md:w-[50%]" />
+      
+      {/* Skeleton for the button */}
+      <Skeleton className="h-[40px] w-[200px] sm:w-[150px] md:w-[120px]" />
+      
+      {/* Skeleton for the description */}
+      <Skeleton className="h-[150px] w-full sm:w-[75%] md:w-[60%]" />
+      
+      {/* Skeleton for the video */}
+      <Skeleton className="video h-[300px] sm:h-[400px] md:h-[600px] w-full sm:w-[90%] md:w-[75%]" />
+      
+      {/* Skeleton for controls */}
+      <div className="w-full flex justify-between items-center mt-5 gap-2 sm:gap-4">
+        {/* Left controls */}
+        <div className="flex gap-2 items-center">
+          <Skeleton className="w-[60px] h-[30px] sm:w-[80px] sm:h-[40px]" />
+          <Skeleton className="w-[60px] h-[30px] sm:w-[80px] sm:h-[40px]" />
         </div>
+        
+        {/* Right button */}
+        <Skeleton className="w-[120px] h-[30px] sm:w-[150px] sm:h-[40px]" />
       </div>
+    </div>
     );
   }
 

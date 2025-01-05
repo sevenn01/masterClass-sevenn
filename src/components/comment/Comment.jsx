@@ -101,13 +101,13 @@ function Comment({userId}) {
             {/* Comment box */}
             <motion.div
                  ref={commentRef}
-                 className="comment-box  md:w-[600px] h-[800px] bg-black/55  p-6 rounded-lg  shadow-lg fixed top-0 right-52 backdrop-blur-sm"
+                 className="comment-box  md:w-[600px] h-[600px] bg-black/80  p-6 rounded-lg  shadow-lg fixed top-[-50px]  right-52 backdrop-blur-sm"
                  initial="closed"
                  animate={isOpen ? "open" : "closed"}
                  variants={boxVariants}
                  transition={{ type: 'spring', stiffness: 200, damping: 20 }}
                  
-                 style={{ top: '50%' }}
+                 style={{ top: '60%'}}
                  
             >
                 <p className=' text-[1rem] '></p>

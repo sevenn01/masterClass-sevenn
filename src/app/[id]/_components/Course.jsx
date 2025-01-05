@@ -6,7 +6,7 @@ import React, { useState,useEffect } from 'react'
 
 import VideoList from './VideoList';
 import { Skeleton } from '@/components/ui/skeleton';
-
+import { IoIosArrowRoundForward } from "react-icons/io";
 
 
 
@@ -42,20 +42,25 @@ function Course({week}) {
             course && tools.length > 0  ?
             (//min-[460px]:px-5
                 <div className='relative  w-full pt-10 pb-10  flex flex-col min-[1412px]:flex-row gap-20 justify-between z-0 ' >
-                    <h1 className='title text-orangeColor  font-bold text-nowrap px-0  text-[5rem] min-[433px]:text-[8rem] font-impact uppercase tracking-wider'>
+                    <h1 className='title text-orangeColor  font-bold text-nowrap px-0  text-[5rem] min-[433px]:text-[7rem] min-[490px]:text-[8rem]  font-impact uppercase tracking-wider'>
                         {course.title}
                     </h1>
                     <div className="about w-[80%] relative  px-1 py-2 min-[385px]:p-5 grid grid-cols-1 min-[970px]:grid-cols-2 gap-10 min-[970px]:gap-32 ">
-                        <div className="goal w-[400px]  font-bold flex flex-col gap-5 text-balance">
+                        <div className="goal w-[80vw] min-[460px]:w-[400px]  font-bold flex flex-col gap-1 text-balance">
                             <div className='text-[2rem]'>Goal</div>
                             <div className='font-thin'>
                                 {goal}
                             </div>
                         </div>
-                        <div className=" font-bold flex flex-col gap-1  ">
-                            <div className="tools flex flex-col gap-2 ">
+                        <div className=" font-bold flex flex-col gap-2  ">
+                            <div className="tools flex flex-col gap-1 ">
                                 <div className='w-[500px] text-[2rem]'>Discord group</div>
-                                <Link href='https://discord.com/invite/6E6RkPdQ25' className='font-thin  '>Discord Link</Link>
+                                <Link href='https://discord.com/invite/6E6RkPdQ25'  legacyBehavior>
+                                    <a target="_blank" rel="noopener noreferrer" className='font-thin flex items-center gap-1'>
+                                        Discord Link
+                                        <IoIosArrowRoundForward className=' '/>
+                                    </a> 
+                                </Link>
                                 {/*
                                     tools.length > 0 ?
                                     tools.map((tool,id) => (
@@ -64,9 +69,15 @@ function Course({week}) {
                                     */
                                 }
                             </div>
-                            <div className="files font-bold flex flex-col gap-2">
+                            <div className="files font-bold flex flex-col gap-1">
                             <div className=' text-[2rem] '>Download Link</div>
-                            <Link href={course.link} className='font-thin  '>Get all assets here</Link>
+                            <Link href={course.link} className='group first-letter:font-thin ' legacyBehavior>
+                                <a target="_blank" rel="noopener noreferrer" className='font-thin flex items-center gap-1'>
+                                    Get all assets here
+                                    <IoIosArrowRoundForward className=' '/>
+                                </a>
+                                
+                            </Link>
                         </div>
                         </div>
                         

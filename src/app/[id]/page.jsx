@@ -11,6 +11,7 @@ import { checkUserByEmail, fetchUserByEmail, fetchUserCount } from '@/lib/user'
 import { createUser } from '@/lib/createUser'
 import { useUser } from '@clerk/nextjs'
 import Comment from '@/components/comment/Comment'
+import RelatedWeeks from './_components/RelatedWeeks'
 
 
 
@@ -20,6 +21,7 @@ function Week() {
   const [img, setImg] =useState();
   const [chapters, setChapters] =useState([]);
   const [statusChaps, setStatusChaps] =useState([]);
+  const [courses, setCourses] = useState([]);
   
   //const [ind, setInd] =useState();
   const [generateWeekId, setGenerateWeekId] =useState();
@@ -151,6 +153,27 @@ function Week() {
     
   },[id,checkAndCreateUser]);
 
+    useEffect(() => {
+      // Fetch the course data from the correct API endpoint
+      
+      const fetchCourses = async () => {
+        try {
+          const response = await fetch('/api/courses');
+          if(!response.ok){
+            throw new Error('Error response was not ok')
+          }
+          const data = await response.json();
+          setCourses(data.masterClasses);
+          //console.log(data.masterClasses);
+         
+        } catch (error) {
+          console.error('Error fetching data field: ', error)
+        }
+      }
+  
+      fetchCourses()
+
+    },); 
   /*
   const handleGetChapter = (videoUrl, index) => {
     setChapter(videoUrl);
@@ -176,13 +199,14 @@ function Week() {
         
                     
 
-        <div className=' flex justify-center items-center'>
+        <div className='w-[100%] flex justify-center items-center'>
           <div className=' text-sm mt-100'>{url}</div>  
         <VideoList weekChapters={chapters} status={statusChaps} generateUserId={generateUserId}/> 
         
         </div>
         {/* <Course week={week}/> */}
         <Comment   userId={generateUserId}/>
+        <RelatedWeeks courses={courses} id={id} />
     </div>
   )
 }

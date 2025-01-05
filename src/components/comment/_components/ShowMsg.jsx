@@ -195,7 +195,7 @@ function ShowMsg({idOfWeek}) {
 
                   <div className='max-w-[250px] flex flex-col gap-0 bg-white/20 px-3 py-2 rounded-md'>
                     <div className="sender w-fit  text-[.8rem] font-inter font-semibold ">
-                      {mssg.sender}
+                      {mssg.userId === idOfUser ? 'You' : mssg.sender}
                     </div>
                       {mssg.mssg}
                   </div>

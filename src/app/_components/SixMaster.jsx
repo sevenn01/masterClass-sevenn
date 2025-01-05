@@ -20,8 +20,8 @@ function SixMaster({courses,complete}) {
 
   useEffect(()=>{
     if (Array.isArray(courses) && courses.length > 0) {
-      console.log('First Course:', courses[0].thumb.url);
-      console.log('First Course:', courses[0].state);
+      //console.log('First Course:', courses[0].thumb.url);
+      //console.log('First Course:', courses[0].state);
     } else {
       
       //console.log(courses)
@@ -32,7 +32,7 @@ function SixMaster({courses,complete}) {
 
 //md:grid-cols-2 lg:grid-cols-3 min-[1024px]:grid-cols-2                                                                                            grid-cols-1 min-[1024px]:grid-cols-2 min-[1440px]:grid-cols-3                                                                          
   return (
-    <div className={`select-none w-[90%] relative  z-0 py-5   justify-center items-center ${courses.length > 0 ? 'px-10 grid gap-x-5 gap-y-10  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ': ''} `}>
+    <div className={`select-none w-[90%] relative  z-0 py-5   justify-center items-center ${courses.length > 0 ? 'px-10 grid gap-x-5 gap-y-10  grid-cols-1 min-[870px]:grid-cols-2 min-[1331px]:grid-cols-3 ': ''} `}>
                                                     
       { 
         Array.isArray(courses) && courses.length > 0 ? 
@@ -68,7 +68,7 @@ function SixMaster({courses,complete}) {
                 style={Hover_animation}
               ></div>
               
-              <div key={course.idOfCourse} className='relative flex justify-center bg-white h-[400px] rounded-[20px] cursor-pointer
+              <div key={course.idOfCourse} className='relative flex justify-center bg-white h-[100%] rounded-[20px] cursor-pointer
                 
                 bg-gradient-to-t from-black from-20% to-[#ffffffc7]
                 overflow-hidden'>
@@ -99,12 +99,12 @@ function SixMaster({courses,complete}) {
                             <div className="title font-bold text-[2rem]">{course.title}</div>
                             <FaArrowRight size={25}/>
                           </div>
-                          <div className="description w-[300px]  text-sm font-extralight  line-clamp-2">{course.description}</div>
+                          <div className="description w-[200px] min-[452px]:w-[300px]  text-sm font-extralight  line-clamp-2">{course.description}</div>
                         
                         </div>
                       
                       <div className={`w-full flex-col justify-center gap-1 ${user? 'flex' : 'hidden'}`}>
-                        <div>{complete? complete[index] : '0'}%</div>
+                        {/* <div>{complete? complete[index] : '0'}%</div> */}
                         <div className="relative w-full h-[10px] bg-white/20 rounded-sm overflow-hidden">
                           <div 
                             className={`score  h-full bg-white transition-all duration-200 `}
