@@ -1,7 +1,7 @@
 {
     "version": 2,
     "env": {
-      "NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY": "@next_public_clerk_publishable_key",
+      "NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY": "pk_test_Ym9sZC1tYW5hdGVlLTU5LmNsZXJrLmFjY291bnRzLmRldiQ",
       "CLERK_SECRET_KEY": "@clerk_secret_key"
     },
     "builds": [
