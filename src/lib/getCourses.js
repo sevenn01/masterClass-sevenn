@@ -1,7 +1,7 @@
 import { GraphQLClient, gql } from "graphql-request";
 
 export async function getCourses() {
-  const endpoint = process.env.API_HYGRAPH_ENDPOINT;
+  const endpoint = "https://api-ca-central-1.hygraph.com/v2/clzfsx1u7048507w6g9cyf3vx/master";
   const graphQLClient = new GraphQLClient(endpoint, {
     headers: {
       "Content-Type": 'application/json',
